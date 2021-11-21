@@ -7,7 +7,7 @@ docker build -t jenkins_controller ../common/controller
 cp ../common/controller/casc.yaml ../jenkins_controller_home
 
 mkdir -p ../jenkins_controller_home/plugins
-cp ../common/peass-ci/target/peass-ci.hpi ../jenkins_controller_home/plugins
+cp ../common/peass-ci-plugin/target/peass-ci.hpi ../jenkins_controller_home/plugins
 
 mkdir -p ../jenkins_controller_home/jobs/buildOnControllerCompileError
 cp config.xml ../jenkins_controller_home/jobs/buildOnControllerCompileError
