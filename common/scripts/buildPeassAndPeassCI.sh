@@ -16,7 +16,7 @@ git clone --branch $branch https://github.com/dagere/peass && \
 
 cd ..
 
-git clone --branch $branch https://github.com/dagere/peass-ci && \
+git clone --branch $branch https://github.com/jenkinsci/peass-ci-plugin && \
     cd peass-ci && \
     ./mvnw clean -B package --file pom.xml -DskipTests
 
