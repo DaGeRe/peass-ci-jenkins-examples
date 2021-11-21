@@ -34,7 +34,7 @@
         stage(&apos;test&apos;) {
             steps {
                 measure VMs: 4, iterations: 2, repetitions: 2, measurementMode: &apos;COMPLETE&apos;,
-                useSampling: false, useSourceInstrumentation: false, warmup: 0
+                useAggregation: false, useSourceInstrumentation: false, warmup: 0
             }
         }
     }
