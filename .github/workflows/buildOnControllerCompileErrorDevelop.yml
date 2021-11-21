@@ -53,7 +53,7 @@ jobs:
         R_TIME: "${{ steps.current-time.outputs.readableTime }}"
       run: echo $R_TIME
     - name: Build peass(-ci)-develop
-      run: ../common/scripts/buildPeassAndPeassCI-develop.sh
+      run: ../common/scripts/buildPeassAndPeassCI.sh develop
     - name: Build and run container
       run: ./buildOnControllerCompileError.sh
     - name: Wait for jenkins startup
