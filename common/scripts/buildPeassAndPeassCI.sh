@@ -12,7 +12,7 @@ fi
 
 git clone --branch $branch https://github.com/dagere/peass && \
     cd peass && \
-    ./mvnw clean install -pl dependency,measurement,analysis -DskipTests
+    ./mvnw clean install -P buildStarter -DskipTests
 
 cd ..
 
