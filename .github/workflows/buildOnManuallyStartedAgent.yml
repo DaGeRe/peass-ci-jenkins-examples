@@ -38,12 +38,6 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: ${{ matrix.java }}
-    - name: Cache Maven packages
-      uses: actions/cache@v2
-      with:
-        path: ~/.m2
-        key: ${{ matrix.java }}-m2-${{ hashFiles('**/pom.xml') }}
-        restore-keys: ${{ matrix.java }}-m2
     - name: Get current time
       uses: 1466587594/get-current-time@v2
       id: current-time
