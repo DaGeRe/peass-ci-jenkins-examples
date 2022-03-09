@@ -53,8 +53,8 @@ checkResults () {
     CHANGES_DEMO_PROJECT=$PEASS_DATA/changes.json
 
     WORKSPACE="workspace_peass"
-    EXECUTION_FILE=$PEASS_DATA/execute_workspace.json
-    DEPENDENCY_FILE=$PEASS_DATA/deps_workspace.json
+    EXECUTION_FILE=$PEASS_DATA/traceTestSelection_workspace.json
+    DEPENDENCY_FILE=$PEASS_DATA/staticTestSelection_workspace.json
     if [ $1 == "buildOnManuallyStartedAgent" ]
     then
         DEMO_HOME=../jenkins_agent-1_home/$DEMO_PROJECT_NAME
