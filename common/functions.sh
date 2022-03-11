@@ -59,8 +59,8 @@ checkResults () {
     then
         DEMO_HOME=../jenkins_agent-1_home/$DEMO_PROJECT_NAME
         WORKSPACE=$1"_peass"
-        EXECUTION_FILE=$PEASS_DATA/execute_$1.json
-        DEPENDENCY_FILE=$PEASS_DATA/deps_$1.json
+        EXECUTION_FILE=$PEASS_DATA/traceTestSelection_$1.json
+        DEPENDENCY_FILE=$PEASS_DATA/staticTestSelection_$1.json
     fi
 
     VERSION="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
