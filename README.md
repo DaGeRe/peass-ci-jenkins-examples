@@ -40,22 +40,13 @@ To log in to Jenkins on http://localhost:8080, enter *admin* as user and *123* a
 This will execute a build on a Jenkins server running inside a Docker container.
 
 * Move to folder *buildOnController*.
-
 * Execute *../common/scripts/buildPeassAndPeassCI.sh* or *../common/scripts/buildPeassAndPeassCI.sh develop* respectively.
-
-* Execute *buildOnController.sh*. After that, a Docker container named *jenkins_controller* is running.
-
-* After Jenkins is fully started (means http://localhost:8080 can be loaded), you can log in.
-
-* You will see, that a pipeline-project named *buildOnController* is configured and a build is already running.
-
-* If the build is finished, you can check its dashboard. You will find informations about performance changes and their possibly causes.
-
+* Execute *buildOnController.sh*. After that, a Docker container named *jenkins_controller* is running. After Jenkins is fully started (means http://localhost:8080 can be loaded), you can log in. You will see, that a pipeline-project named *buildOnController* is configured and a build is already running. If the build is finished, you can check its dashboard. You will find informations about performance changes and their possibly causes.
 * You can run *checkResults.sh* afterwards, to check if measurement-results are as expected.
 
-* Running *buildWaitCheckResults.sh* will run all the above steps. So instead of running each single step on its own, you can also execute *buildWaitCheckResults.sh*.
+If you want to run every step at once, running *buildWaitCheckResults.sh* will run all the above steps. So instead of running each single step on its own, you can also execute *buildWaitCheckResults.sh*.
 
-* Clean the workspace of Jenkins controller using *cleanControllerWorkspace.sh*.
+If you want to re-run, clean the workspace of Jenkins controller using *cleanControllerWorkspace.sh*.
 
 ### Build testproject in an agent automatically started by Jenkins controller
 
