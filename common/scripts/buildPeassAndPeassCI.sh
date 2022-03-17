@@ -10,6 +10,14 @@ else
 	branch=$1
 fi
 
+if [ "$1" -eq "develop" ]; then
+	git clone --branch develop https://github.com/DaGeRe/KoPeMe && \
+		cd KoPeMe && \
+		./mvnw clean install -DskipTests
+	cd ..
+fi
+	  
+
 git clone --branch $branch https://github.com/dagere/peass && \
     cd peass && \
     ./mvnw clean install -P buildStarter -DskipTests
