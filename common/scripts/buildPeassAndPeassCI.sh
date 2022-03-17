@@ -10,7 +10,8 @@ else
 	branch=$1
 fi
 
-if [ "$1" -eq "develop" ]; then
+if [ "$1" == "develop" ]; then
+	echo "Cloing KoPeMe"
 	git clone --branch develop https://github.com/DaGeRe/KoPeMe && \
 		cd KoPeMe && \
 		./mvnw clean install -DskipTests
