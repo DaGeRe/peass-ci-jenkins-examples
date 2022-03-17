@@ -30,7 +30,7 @@ So each example is built on github, respectively using the main- and develop-bra
 ## Important
 Each example has its own folder. Make sure to always run the appropriate scripts from the appropriate folder!
 
-To build the latest version of *Peass-CI*, execute *buildPeassAndPeassCI.sh* in common/scripts. This will install the necessary *Peass*-dependencies to build *Peass-CI* afterwards. For installing the develop-branches, execute *buildPeassAndPeassCI-develop.sh*. Always call these scripts from inside an example-folder! For example, inside the *buildOnController*-folder execute *../common/scripts/buildPeassAndPeassCI.sh*.
+To build the latest version of *Peass-CI*, execute *buildPeassAndPeassCI.sh* in common/scripts. This will install the necessary *Peass*-dependencies to build *Peass-CI* afterwards. For installing the develop-branches, execute *buildPeassAndPeassCI.sh develop*. Always call these scripts from inside an example-folder! For example, inside the *buildOnController*-folder execute *../common/scripts/buildPeassAndPeassCI.sh*.
 
 Before executing another example, don't forget to cleanup the Jenkins workspace! Therefore a script is provided for each example. This will also delete the *peass* and *peass-ci*-folders created inside *common*-folder by *buildPeassAndPeassCI(-develop).sh*. Run the cleanup-scripts with sudo, since the controller-containers are started as user root!
 
@@ -41,7 +41,7 @@ This will execute a build on a Jenkins server running inside a Docker container.
 
 * Move to folder *buildOnController*.
 
-* Execute *../common/scripts/buildPeassAndPeassCI.sh* or *../common/scripts/buildPeassAndPeassCI-develop.sh* respectively.
+* Execute *../common/scripts/buildPeassAndPeassCI.sh* or *../common/scripts/buildPeassAndPeassCI.sh develop* respectively.
 
 * Execute *buildOnController.sh*. After that, a Docker container named *jenkins_controller* is running.
 
@@ -63,7 +63,7 @@ This will execute a build inside a Jenkins agent. The agent is started by Jenkin
 
 * Move to folder *buildOnJenkinsStartedAgent*.
 
-* Execute *../common/scripts/buildPeassAndPeassCI.sh* or *../common/scripts/buildPeassAndPeassCI-develop.sh* respectively.
+* Execute *../common/scripts/buildPeassAndPeassCI.sh* or *../common/scripts/buildPeassAndPeassCI.sh develop* respectively.
 
 * Execute *buildOnJenkinsStartedAgent.sh*. After that, a Docker container named *jenkins_controller* is running.
 
@@ -84,7 +84,7 @@ This will execute a build inside a Jenkins agent. Therefore, next to the Docker 
 
 * Move to folder *buildOnManuallyStartedAgent*.
 
-* Execute *../common/scripts/buildPeassAndPeassCI.sh* or *../common/scripts/buildPeassAndPeassCI-develop.sh* respectively.
+* Execute *../common/scripts/buildPeassAndPeassCI.sh* or *../common/scripts/buildPeassAndPeassCI.sh develop* respectively.
 
 * Execute *buildOnManuallyStartedAgent.sh*. After that, two Docker containers are running, named *jenkins_controller* and *jenkins_agent-1*.
 
