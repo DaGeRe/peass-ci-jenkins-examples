@@ -51,7 +51,7 @@ jobs:
     - name: Build peass(-ci)-develop
       run: ../common/scripts/buildPeassAndPeassCI.sh develop
     - name: Build and run container
-      run: ./buildOnController.sh
+      run: ./buildOnController.sh develop
     - name: Wait for jenkins startup
       run: ./waitForJenkinsStartup.sh
     - name: Wait for build end
