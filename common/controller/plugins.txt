@@ -26,5 +26,5 @@ startup-trigger-plugin:latest
 timestamper:latest
 workflow-aggregator:latest
 workflow-basic-steps:latest
-workflow-durable-task-step:latest
+workflow-durable-task-step:1139.v252a_e12e8463
 ws-cleanup:latest
