@@ -17,6 +17,33 @@ waitForJenkinsStartup () {
     echo "------------------------------------"
 }
 
+function waitForMetadataDownload() {
+	dockerContainerName=$1
+
+	
+
+	finished=""
+	while [ "$finished" == "" ]
+	do
+		sleep 1
+		echo "Checking whether metadata have been downloaded in $dockerContainerName"
+		finished=$(docker logs $dockerContainerName 2>&1 | grep "Finished Download metadata")
+		echo $finished
+	done
+}
+
+function installNecessaryPlugins() {
+	for plugin in $(cat ../common/controller/plugins.txt)
+	do
+		echo -n "Installing $plugin "
+		java -jar ../common/jenkins-cli.jar \
+			-s http://localhost:8080 \
+			-auth admin:123 install-plugin $plugin
+		echo "Installing finished"
+	done
+	echo "Done with installing"
+}
+
 waitForBuildEnd () {
 
     command="echo 'println(jenkins.model.Jenkins.instance''.getItem(\"$1\").lastBuild.building)' | java -jar ../common/jenkins-cli.jar -s \
