@@ -14,6 +14,8 @@ function prepareControllerWorkspace {
 	tar -xf ../common/demo-project.tar.xz --directory ../jenkins_controller_home/jobs/buildOnJenkinsStartedAgent
 }
 
+prepareControllerWorkspace
+
 docker run -d --name jenkins_controller --rm --publish 8080:8080 \
     --volume $(pwd)/../jenkins_controller_home:/var/jenkins_home \
     --volume /var/run/docker.sock:/var/run/docker.sock \
