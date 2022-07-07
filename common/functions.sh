@@ -62,6 +62,18 @@ waitForBuildEnd () {
     echo "------------------------------------"
 }
 
+function checkInitialCommit {
+	expectedCommit=$1
+	dependencyfile=$2
+	
+	INITIAL_SELECTED=$(grep "initialcommit" -A 1 $dependencyfile | grep "\"commit\"" | tr -d " \"," | awk -F':' '{print $2}')
+	if [ "$INITIAL_SELECTED" != "$expectedCommit" ]
+	then
+		echo "Initial commit should be $expectedCommit, but was $INITIAL_SELECTED"
+		exit 1
+	fi
+}
+
 checkResults () {
 
     echo "------------------------------------"
@@ -92,18 +104,12 @@ checkResults () {
 
     VERSION="$(cd "$DEMO_HOME" && git rev-parse HEAD)"
 
-    INITIALVERSION="f2de60284ff832d5232870da6ace172ab1361eb7"
+    INITIALCOMMIT="f2de60284ff832d5232870da6ace172ab1361eb7"
     if [ $1 == "buildOnControllerCompileError" ]
     then
-        INITIALVERSION="696131783b5ea6b9299b45a888d0f60f38547547"
+        INITIALCOMMIT="696131783b5ea6b9299b45a888d0f60f38547547"
     fi
-
-    INITIAL_SELECTED=$(grep "initialversion" -A 1 $DEPENDENCY_FILE | grep "\"version\"" | tr -d " \"," | awk -F':' '{print $2}')
-    if [ "$INITIAL_SELECTED" != "$INITIALVERSION" ]
-    then
-	    echo "Initialversion should be $INITIALVERSION, but was $INITIAL_SELECTED"
-        exit 1
-    fi
+    checkInitialCommit $INITIALCOMMIT $DEPENDENCY_FILE
 
     if [ ! -f $EXECUTION_FILE ]
     then
