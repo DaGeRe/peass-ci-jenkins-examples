@@ -120,7 +120,7 @@ checkResults () {
     fi
 
     #Check, if $CHANGES_DEMO_PROJECT contains the correct commit-SHA
-    TEST_SHA=$(grep -A1 'versionChanges" : {' $CHANGES_DEMO_PROJECT | grep -v '"versionChanges' | grep -Po '"\K.*(?=")')
+    TEST_SHA=$(grep -A1 'commitChanges" : {' $CHANGES_DEMO_PROJECT | grep -v '"commitChanges' | grep -Po '"\K.*(?=")')
     if [ "$VERSION" != "$TEST_SHA" ]
     then
         echo "commit-SHA ("$VERSION") is not equal to the SHA in $CHANGES_DEMO_PROJECT ("$TEST_SHA")!"
