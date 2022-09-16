@@ -1,4 +1,5 @@
 testExecute.sh
 common/peass-ci-plugin/
+peass-ci-plugin/
 common/KoPeMe/
 common/peass
