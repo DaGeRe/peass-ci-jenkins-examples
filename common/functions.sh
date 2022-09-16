@@ -6,7 +6,7 @@ waitForJenkinsStartup () {
     online=1
     while [ $online -ne 0 ]
     do
-	    echo 'Waiting for jenkins startup...'
+        echo 'Waiting for jenkins startup...'
         sleep 3
         eval $command
         online=$?
