@@ -14,5 +14,7 @@ ENV MAVEN_CONFIG "/var/jenkins_home/.m2"
 USER root
 RUN apt-get update && apt-get install -y maven git
 
+RUN jenkins-plugin-cli --plugins "workflow-api:latest workflow-step-api:latest workflow-job:latest workflow-support:latest credentials:latest"
+
 # Standard SSH port
 EXPOSE 22

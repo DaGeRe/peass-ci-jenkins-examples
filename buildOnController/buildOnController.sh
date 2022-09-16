@@ -26,14 +26,4 @@ docker run -d --name jenkins_controller --rm --publish 8080:8080 \
 source ../common/functions.sh 
 waitForJenkinsStartup "buildOnController"
 
-waitForMetadataDownload "jenkins_controller"
-
-installNecessaryPlugins
-
-docker restart jenkins_controller
-waitForJenkinsStartup "buildOnController"
 waitForBuildEnd "buildOnController"
-
-#if [ "$1" == "develop" ]; then
-#	docker exec -t jenkins_controller bash -c 'cd home && git clone --branch develop https://github.com/DaGeRe/KoPeMe && cd KoPeMe && mvn clean install -DskipTests'
-#fi
