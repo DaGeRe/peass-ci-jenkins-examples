@@ -9,16 +9,7 @@ if [ "$#" -lt 1 ]; then
 else
 	branch=$1
 fi
-
-if [ "$1" == "develop" ]; then
-	start=$(pwd)
-	echo "Cloning KoPeMe"
-	git clone --branch develop https://github.com/DaGeRe/KoPeMe && \
-		cd KoPeMe && \
-		./mvnw clean install -DskipTests
-	cd $start
-fi
-	  
+  
 
 git clone --branch $branch https://github.com/dagere/peass && \
     cd peass && \
