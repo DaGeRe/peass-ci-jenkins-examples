@@ -53,7 +53,7 @@ waitForBuildEnd () {
     while [ "$building" = true ]
     do
         sleep 5
-	    building=$(eval $command)
+        building=$(eval $command)
         echo 'Jenkins is still building...'
     done
 
