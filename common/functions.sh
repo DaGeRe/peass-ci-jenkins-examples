@@ -20,8 +20,6 @@ waitForJenkinsStartup () {
 function waitForMetadataDownload() {
 	dockerContainerName=$1
 
-	
-
 	finished=""
 	while [ "$finished" == "" ]
 	do
@@ -32,30 +30,10 @@ function waitForMetadataDownload() {
 	done
 }
 
-function installNecessaryPlugins() {
-	for plugin in $(cat ../common/controller/plugins.txt)
-	do
-		echo -n "Installing $plugin "
-		java -jar ../common/jenkins-cli.jar \
-			-s http://localhost:8080 \
-			-auth admin:123 install-plugin $plugin
-		echo "Installing finished"
-	done
-	echo "Done with installing"
-}
-
 waitForBuildEnd () {
+    dockerContainerName=$1
 
-    command="echo 'println(jenkins.model.Jenkins.instance''.getItem(\"$1\").lastBuild.building)' | java -jar ../common/jenkins-cli.jar -s \
-            http://localhost:8080 -auth admin:123 groovy ="
-
-    building=$(eval $command)
-    while [ "$building" = true ]
-    do
-        sleep 5
-        building=$(eval $command)
-        echo 'Jenkins is still building...'
-    done
+    java -jar ../common/jenkins-cli.jar -s http://localhost:8080 -auth admin:123 build $dockerContainerName -f
 
     echo "------------------------------------"
     echo 'Jenkins finished building.'
