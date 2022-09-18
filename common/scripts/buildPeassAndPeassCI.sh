@@ -13,7 +13,8 @@ fi
 
 git clone --branch $branch https://github.com/dagere/peass && \
     cd peass && \
-    ./mvnw clean install -P buildStarter -DskipTests
+    ./mvnw clean install -P buildStarter -DskipTests && \
+    cd ..
 
 git clone --branch $branch https://github.com/jenkinsci/peass-ci-plugin && \
     cd peass-ci-plugin && \
