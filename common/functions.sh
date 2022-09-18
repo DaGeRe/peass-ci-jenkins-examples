@@ -77,6 +77,8 @@ function checkInitialCommit {
 checkResults () {
 
     echo "------------------------------------"
+    echo "Job Output"
+    echo "------------------------------------"
     java -jar ../common/jenkins-cli.jar -s http://localhost:8080 -auth admin:123 console "$1" 1
     echo "------------------------------------"
 
