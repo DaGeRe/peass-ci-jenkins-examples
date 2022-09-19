@@ -5,7 +5,7 @@ ENV TZ=Europe/Berlin
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt update && \
-	apt install -y openssh-server sudo curl openjdk-8-jdk maven git
+	apt install -y openssh-server sudo curl openjdk-11-jdk maven git
 
 RUN java -version
 
@@ -19,7 +19,7 @@ RUN apt-get update && \
 
 RUN  echo 'jenkins:jenkins' | chpasswd
 
-RUN update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+#RUN update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 
 USER root
 RUN service ssh start
