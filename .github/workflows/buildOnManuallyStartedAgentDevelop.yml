@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
        matrix:
-          java: [ 1.8, 11, 15 ]
+          java: [ 1.8, 11, 17 ]
        fail-fast: false
 
     defaults:
