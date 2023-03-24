@@ -21,6 +21,7 @@ prepareControllerWorkspace
 docker run -d --name jenkins_controller --rm --publish 8080:8080 \
     --volume $(pwd)/../jenkins_controller_home:/var/jenkins_home \
     --env JENKINS_ADMIN_ID=admin --env JENKINS_ADMIN_PASSWORD=123 \
+    --env JAVA_OPTS=-Dhudson.plugins.git.GitSCM.ALLOW_LOCAL_CHECKOUT=true \
     -uroot jenkins_controller
   
 source ../common/functions.sh 
