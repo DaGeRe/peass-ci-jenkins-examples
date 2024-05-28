@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:2.414.3
+FROM jenkins/jenkins:2.452.1
 
 ENV JAVA_OPTS "-Djenkins.install.runSetupWizard=false -Dhudson.plugins.git.GitSCM.ALLOW_LOCAL_CHECKOUT=true"
 ENV CASC_JENKINS_CONFIG /var/jenkins_home/casc.yaml
