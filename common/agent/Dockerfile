@@ -5,7 +5,7 @@ ENV TZ=Europe/Berlin
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt update && \
-	apt install -y openssh-server sudo curl openjdk-11-jdk maven git
+	apt install -y openssh-server sudo curl openjdk-17-jdk maven git
 
 RUN java -version
 
