@@ -17,7 +17,8 @@ RUN apt-get update && \
     apt-get clean && \
     update-ca-certificates -f;
 
-RUN  echo 'jenkins:jenkins' | chpasswd
+RUN chown --recursive jenkins /home/ubuntu
+RUN echo 'jenkins:jenkins' | chpasswd
 
 #RUN update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 
