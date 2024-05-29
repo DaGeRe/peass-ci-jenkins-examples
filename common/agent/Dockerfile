@@ -9,7 +9,7 @@ RUN apt update && \
 
 RUN java -version
 
-RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1001 jenkins
+RUN useradd --system --create-home -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1001 jenkins
 
 # Fix certificate issues
 RUN apt-get update && \
