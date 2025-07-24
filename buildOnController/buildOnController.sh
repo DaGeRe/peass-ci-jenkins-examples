@@ -22,8 +22,10 @@ docker run -d --name jenkins_controller --rm --publish 8080:8080 \
     --volume $(pwd)/../jenkins_controller_home:/var/jenkins_home \
     --env JENKINS_ADMIN_ID=admin --env JENKINS_ADMIN_PASSWORD=123 \
     -uroot jenkins_controller
-  
+    
 source ../common/functions.sh 
-waitForJenkinsStartup "buildOnController"
+waitForJenkinsStartup "buildOnController"  
+
+docker exec -t jenkins_controller chown -R root:root /var/jenkins_home/
 
 waitForBuildEnd "buildOnController"
